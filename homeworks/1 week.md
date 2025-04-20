@@ -37,4 +37,3 @@
 - [go HTTP сервер](https://pkg.go.dev/net/http#hdr-Servers)
 - [Руководство по Docker Compose для начинающих](https://habr.com/ru/companies/ruvds/articles/450312/)
 - 
-
