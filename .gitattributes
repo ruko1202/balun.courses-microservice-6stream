@@ -1,0 +1,4 @@
+mock_*.go -diff
+*_mock.go -diff
+go.sum -diff
+*.json -diff
