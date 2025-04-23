@@ -1,4 +1,5 @@
-GOBIN ?= $(PWD)/bin
+include mk_vars.mk
+
 GORELEASER_VERSION = v2.8.2
 
 
@@ -6,8 +7,7 @@ GORELEASER_VERSION = v2.8.2
 build: install-goreleaser
 	# see .build args in .goreleaser.yaml
 	# --single-target      Builds only for current GOOS and GOARCH, regardless of what's set in the configuration file
-	SERVICE_NAME="template" \
-	$(GOBIN)/goreleaser build --snapshot --single-target --clean --output=$(GOBIN)/app ${args}
+	$(GOBIN)/goreleaser build --snapshot --single-target --clean --output=$(GOBIN)/${SERVICE_NAME} ${args}
 
 
 install-goreleaser:

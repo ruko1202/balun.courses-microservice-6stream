@@ -22,8 +22,10 @@ RUN GOBIN=/app/bin make build
 
 FROM alpine:3.21
 
+ARG SERVICE_NAME
+
 EXPOSE 8080
 
 WORKDIR /app
-COPY --from=builder /app/bin/app ./
+COPY --from=builder /app/bin/${SERVICE_NAME} ./app
 ENTRYPOINT ["./app"]

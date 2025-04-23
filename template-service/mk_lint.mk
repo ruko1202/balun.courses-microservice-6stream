@@ -1,4 +1,5 @@
-GOBIN ?= $(PWD)/bin
+include mk_vars.mk
+
 GOLANGCI_VERSION = v1.64.5
 
 .PHONY: lint

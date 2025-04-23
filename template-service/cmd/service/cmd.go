@@ -23,8 +23,7 @@ func main() {
 	initMiddlewares(app)
 
 	{
-		gr := app.Group("v1")
-		service.New(gr)
+		service.New(app.Group(""))
 	}
 
 	go func() {

@@ -1,11 +1,8 @@
-SERVICE_NAME:=
-ifndef ${SERVICE_NAME}
-SERVICE_NAME:=$(shell cat ./.goreleaser.yaml | grep project_name | awk '{print $$2}')
-endif
+include mk_vars.mk
 
 build-image:
 	$(info build image ${SERVICE_NAME})
-	docker build -f=./.build/Dockerfile --tag=${SERVICE_NAME} ./
+	docker build -f=./.build/Dockerfile --tag=${SERVICE_NAME} --build-arg=SERVICE_NAME=${SERVICE_NAME} ./
 	make docker-prune
 	docker images | grep ${SERVICE_NAME}
 
