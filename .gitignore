@@ -23,3 +23,22 @@ go.work.sum
 
 # env file
 .env
+
+.idea/
+
+template-service/bin/
+template-service/dist/
+services/api-gateway/bin/
+services/api-gateway/dist/
+services/auth/bin/
+services/auth/dist/
+services/chat-message/bin/
+services/chat-message/dist/
+services/friend/bin/
+services/friend/dist/
+services/media/bin/
+services/media/dist/
+services/notification/bin/
+services/notification/dist/
+services/user-profile/bin/
+services/user-profile/dist/
