@@ -1,0 +1,41 @@
+version: v2
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: github.com/bufbuild/buf-examples/gen
+inputs:
+  - directory: api
+plugins:
+  - local: ./bin/protoc-gen-go
+    out: pkg/api
+    opt:
+      - paths=source_relative
+    strategy: directory
+
+  - local: ./bin/protoc-gen-go-grpc
+    out: pkg/api
+    opt:
+      - paths=source_relative
+    strategy: directory
+
+  - local: ./bin/protoc-gen-grpc-gateway
+    out: pkg/api
+    opt:
+      - logtostderr=true
+      - paths=source_relative
+      - generate_unbound_methods=true
+    strategy: directory
+
+  - local: ./bin/protoc-gen-go-vtproto
+    out: pkg/api
+    opt:
+      - features=marshal+unmarshal+size+pool
+      - paths=source_relative
+    strategy: directory
+
+  - local: ./bin/protoc-gen-openapiv2
+    out: pkg/swagger
+    opt:
+      - generate_unbound_methods=true
+    strategy: directory

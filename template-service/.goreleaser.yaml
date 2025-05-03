@@ -13,7 +13,7 @@ before:
     # You may remove this if you don't use go modules.
     - go mod tidy
 
-project_name: template-service
+project_name: template_service
 
 builds:
   - id: "main"
