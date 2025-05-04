@@ -25,6 +25,8 @@ issues:
   exclude:
     - 'returns unexported type'
     - 'WriteFile permissions to be 0600 or less'
+  exclude-dirs:
+    - ./pkg/*
 
 run:
   timeout: 10m

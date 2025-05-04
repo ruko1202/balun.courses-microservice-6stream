@@ -1,8 +1,8 @@
-FROM goreleaser/goreleaser:v2.8.2 as goreleaser
+FROM goreleaser/goreleaser:v2.8.2 AS goreleaser
 RUN ls -l /usr/bin | grep gore
 
 
-FROM golang:1.23.7-alpine3.21 as builder
+FROM golang:1.23.7-alpine3.21 AS builder
 
 RUN apk update && \
     apk add --no-cache git make

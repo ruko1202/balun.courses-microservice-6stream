@@ -25,9 +25,6 @@ go.work.sum
 .env
 
 .idea/
-
-template-service/bin/
-template-service/dist/
 services/api-gateway/bin/
 services/api-gateway/dist/
 services/auth/bin/
@@ -42,3 +39,5 @@ services/notification/bin/
 services/notification/dist/
 services/user-profile/bin/
 services/user-profile/dist/
+
+services/bin/
