@@ -7,6 +7,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
+
 	"github.com/ruko1202/balun.courses-microservice-6stream/internal/app/healthcheck"
 	"github.com/ruko1202/balun.courses-microservice-6stream/internal/app/swagger"
 	"github.com/ruko1202/balun.courses-microservice-6stream/internal/config"

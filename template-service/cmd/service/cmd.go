@@ -5,9 +5,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
 	"github.com/rs/zerolog/log"
+
 	"github.com/ruko1202/balun.courses-microservice-6stream/internal/config"
 	"github.com/ruko1202/balun.courses-microservice-6stream/internal/server"
 )
@@ -18,7 +17,8 @@ func main() {
 
 	s, err := server.NewServer(ctx, config.Config.App)
 	if err != nil {
-		log.Fatal().Err(err)
+		stop()
+		log.Fatal().Err(err) //nolint:gocritic
 	}
 
 	s.Run()
@@ -27,9 +27,4 @@ func main() {
 	log.Info().Msg("Shutdown server...")
 	s.Shutdown(ctx)
 
-}
-
-func initMiddlewares(app *echo.Echo) {
-	app.Use(middleware.Logger())
-	app.Use(middleware.Recover())
 }

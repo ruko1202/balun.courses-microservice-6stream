@@ -4,6 +4,7 @@ go 1.23.7
 
 require (
 	github.com/caarlos0/env/v11 v11.3.1
+	github.com/go-ozzo/ozzo-validation/v4 v4.3.0
 	github.com/grpc-ecosystem/go-grpc-middleware v1.4.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.26.3
 	github.com/labstack/echo/v4 v4.13.3
@@ -16,7 +17,6 @@ require (
 )
 
 require (
-	github.com/go-ozzo/ozzo-validation/v4 v4.3.0 // indirect
 	github.com/labstack/gommon v0.4.2 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect

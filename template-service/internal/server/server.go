@@ -8,9 +8,10 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
-	"github.com/ruko1202/balun.courses-microservice-6stream/internal/config"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+
+	"github.com/ruko1202/balun.courses-microservice-6stream/internal/config"
 )
 
 type Server struct {

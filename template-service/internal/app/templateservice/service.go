@@ -1,4 +1,4 @@
-package template_service
+package templateservice
 
 import desc "github.com/ruko1202/balun.courses-microservice-6stream/pkg/api/template_service"
 

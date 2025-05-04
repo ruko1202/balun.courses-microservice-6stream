@@ -4,7 +4,7 @@ package template_service;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/ruko1202/balun.courses-microservice-6stream/pkg/template_service/metriqa;metriqa";
+option go_package = "github.com/ruko1202/balun.courses-microservice-6stream/pkg/templateservice/metriqa;metriqa";
 
 service Service {
   rpc Ping(PingRequest) returns (PingResponse) {}

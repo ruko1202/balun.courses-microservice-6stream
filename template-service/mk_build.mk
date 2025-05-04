@@ -33,3 +33,7 @@ endif
 
 generate:
 	$(GOBIN)/buf generate
+
+.PHONY: deps
+deps:
+	go mod tidy

@@ -4,8 +4,9 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	doc "github.com/ruko1202/balun.courses-microservice-6stream"
 	"github.com/ruko1202/swaggerui"
+
+	doc "github.com/ruko1202/balun.courses-microservice-6stream"
 )
 
 type app struct{}
