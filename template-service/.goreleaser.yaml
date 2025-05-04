@@ -21,7 +21,7 @@ builds:
       - GOAMD64=""
       - CGO_ENABLED=0
     no_unique_dist_dir: true
-    main: ./cmd/service
+    main: ./cmd/healthcheck
     binary: "{{ .ProjectName }}_{{ .Target }}"
     goos:
       - linux
