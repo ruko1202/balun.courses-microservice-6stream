@@ -6,6 +6,9 @@ compose-rebuild: compose-stop
 compose-up: compose-stop
 	docker-compose up -d
 	sleep 1
+	@make compose-ps
+
+compose-ps:
 	docker-compose ps -a
 
 compose-stop:
@@ -24,15 +27,38 @@ docker-prune:
 
 .check_service: service=
 .check_service:
-	@make .curl url="localhost/$$service/version"
-	@make .curl url="localhost/$$service/readiness"
-	@make .curl url="localhost/$$service/liveness"
+	@make .curl url="localhost:8001/$$service/version"
+	@make .curl url="localhost:8001/$$service/readiness"
+	@make .curl url="localhost:8001/$$service/liveness"
 
 check_service:
-	@make .check_service service=api-gateway
-	@make .check_service service=auth
-	@make .check_service service=chat-message
-	@make .check_service service=friend
-	@make .check_service service=media
-	@make .check_service service=notification
-	@make .check_service service=user-profile
+	go test -v ./test/...
+
+
+
+GOBIN ?= $(PWD)/bin
+GOLANGCI_VERSION = v1.64.5
+
+.PHONY: lint
+lint: install-lint
+	$(info $(M) running linter...)
+	@$(GOBIN)/golangci-lint run ./...
+
+.PHONY: install-lint
+install-lint:
+ifeq ($(wildcard ${GOBIN}/golangci-lint),)
+	$(info $(M) install golangci-lint $(GOLANGCI_VERSION)...)
+	@GOBIN=$(GOBIN) go install github.com/golangci/golangci-lint/cmd/golangci-lint@$(GOLANGCI_VERSION)
+else
+ifneq ($(GOLANGCI_VERSION),$(shell ${GOBIN}/golangci-lint --version | awk '{print $$4}'))
+	$(info $(M) update golangci-lint $(GOLANGCI_VERSION)...)
+	@GOBIN=$(GOBIN) go install github.com/golangci/golangci-lint/cmd/golangci-lint@$(GOLANGCI_VERSION)
+endif
+endif
+	$(GOBIN)/golangci-lint --version
+
+
+.PHONY: fmt
+fmt: install-lint ## Format code
+	$(info $(M) fmt project...)
+	@$(GOBIN)/golangci-lint run --disable-all -E goimports --fix ./...

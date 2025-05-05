@@ -24,5 +24,4 @@ endif
 .PHONY: fmt
 fmt: install-lint ## Format code
 	$(info $(M) fmt project...)
-	make update_readme
 	@$(GOBIN)/golangci-lint run --disable-all -E goimports --fix ./...
